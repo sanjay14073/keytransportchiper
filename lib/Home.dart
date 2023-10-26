@@ -45,7 +45,7 @@ class _HomeState extends State<Home> {
               TextField(controller: t1,maxLines: 10,style: TextStyle(color: AppColors.textColor,),decoration: InputDecoration(hintText: "Enter The text To Be encrypted or decrypted",hintStyle: TextStyle(color: AppColors.textColor)),),
               SizedBox(height: 20,),
               MaterialButton(onPressed: ()async{
-                var url=Uri.parse("http://192.168.1.40:3300/encrypt");
+                var url=Uri.parse("http://0.0.0.0:3300/encrypt");
                 var data={
                   "message":t1.text,
                   "key":(t1.text.length-1)>0?(Random().nextInt(150))%(t1.text.length-1):1,
@@ -107,7 +107,7 @@ class _HomeState extends State<Home> {
                             child: const Text('Continue'),
                             onPressed: () async{
                               Navigator.of(context).pop();
-                              var url=Uri.parse("http://192.168.1.40:3300/encrypt");
+                              var url=Uri.parse("http://0.0.0.0:3300/encrypt");
                               var data={
                                 "message":t1.text,
                                 "key":(t1.text.length-1)>0?(int.parse(t2.text))%(t1.text.length-1):1,
@@ -172,7 +172,7 @@ class _HomeState extends State<Home> {
                   return;
                 }
                 print(key);
-                var url=Uri.parse("http://192.168.1.40:3300/decrypt");
+                var url=Uri.parse("http://0.0.0.0:3300/decrypt");
                 var data={
                   "message":t1.text,
                   "key":key,
@@ -218,7 +218,7 @@ class _HomeState extends State<Home> {
                             child: const Text('Continue'),
                             onPressed: () async{
                               Navigator.of(context).pop();
-                              var url=Uri.parse("http://192.168.1.40:3300/decrypt");
+                              var url=Uri.parse("http://0.0.0.0:3300/decrypt");
                               var data={
                                 "message":t1.text,
                                 "key":int.parse(t2.text),
